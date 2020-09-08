@@ -1,0 +1,11 @@
+.DS_Store
+.idea/
+.ipynb_checkpoints/
+__pycache__/
+env*/
+upload/
+env.py
+migrations/
+db.sqlite3
+static/*
+!**/static/
