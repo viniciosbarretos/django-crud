@@ -2,7 +2,7 @@ from django.db import models
 from .validators import username_validator
 
 class Post(models.Model):
-	# ID is automatically generated and not editable
+	# ID is automatically generated and not editable by default
 	username = models.CharField(max_length=140, help_text='', validators=[username_validator])
 
 	# post data
