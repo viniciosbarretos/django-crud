@@ -4,7 +4,6 @@
 __pycache__/
 env*/
 upload/
-env.py
 migrations/
 db.sqlite3
 static/*

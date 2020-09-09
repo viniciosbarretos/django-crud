@@ -1,17 +1,13 @@
 from pathlib import Path
+import codeleap.env as env
 import logging.config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$^-8)3=#8q%!k8*%&cl-t=q0b5yntz21t(yh@(5n+q*wt5kkw_'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+SECRET_KEY = env.SECRET_KEY
+DEBUG = env.DEBUG
+ALLOWED_HOSTS = env.ALLOWED_HOSTS
 
 # Application definition
 INSTALLED_APPS = [
@@ -64,8 +60,12 @@ WSGI_APPLICATION = 'codeleap.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': env.DB_ENGINE,
+        'NAME': env.DB_NAME,
+        'USER': env.DB_USER,
+        'PASSWORD': env.DB_PASSWORD,
+        'HOST': env.DB_HOST,
+        'PORT': env.DB_PORT,
     }
 }
 
@@ -92,9 +92,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = env.LANGUAGE_CODE
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = env.TIME_ZONE
 
 USE_I18N = True
 
@@ -105,7 +105,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static/'
 
@@ -122,7 +121,6 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
 )
-
 CORS_ALLOW_METHODS = [
     'DELETE',
     'OPTIONS',
@@ -131,6 +129,7 @@ CORS_ALLOW_METHODS = [
 	'GET'
 ]
 
+# advanced logging settings
 logging.config.dictConfig({
     'version': 1,
     'disable_existing_loggers': False,
