@@ -36,11 +36,11 @@ To access the application go to the URL defined at docker-compose.yml. The defau
 
 
 
-## API Validations
+## API Validators
 
 * All usernames should start with @
 * Once set, you can't change username
-* You can't set object ID and creation datetime
+* You can't set/change object ID and creation datetime
 
 ## CORS Policy
 
