@@ -58,9 +58,6 @@ docker-compose run app-django python manage.py test
 * API results pagination
     * If this were implemented, the front end would not work correctly. I followed [documentation](https://www.figma.com/file/0OQWLQmU14SF2cDhHPJ2sx/CodeLeap-Engineering-Test?node-id=0%3A1) guidelines.
 
-```sh
-docker-compose run app-django python manage.py test
-```
 
 ## Author
 
