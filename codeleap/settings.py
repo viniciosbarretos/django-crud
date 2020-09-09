@@ -21,10 +21,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'api'
+    'api',
+	'corsheaders'
 ]
 
 MIDDLEWARE = [
+	'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -104,8 +106,24 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+# Django Rest Framework Settings
 REST_FRAMEWORK = {
     # # Pagination settings
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     # 'PAGE_SIZE': 100,
 }
+
+# django-cors-headers settings
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8000',
+)
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+	'GET'
+]
