@@ -32,9 +32,8 @@ docker-compose up
 
 ## Usage
 
-```sh
-docker
-```
+To access the application go to the URL defined at docker-compose.yml. The default URL is http://localhost:80/
+
 
 ## Run tests
 
