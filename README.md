@@ -49,10 +49,10 @@ To access the application go to the URL defined at docker-compose.yml. The defau
 ##### GET http://{{ domain }} /
 
 ### Get individual Post
-##### GET http://{{ domain }} /{OBJECT_ID}
+##### GET http://{{ domain }} /{OBJECT_ID}/
 
 ### Update a Post
-##### PATCH http://{{ domain }} /{OBJECT_ID}
+##### PATCH http://{{ domain }} /{OBJECT_ID}/
 ```json
 # request body
 {
@@ -62,7 +62,7 @@ To access the application go to the URL defined at docker-compose.yml. The defau
 ```
 
 ### Delete a Post
-##### PATCH http://{{ domain }} /{OBJECT_ID}
+##### DELETE http://{{ domain }} /{OBJECT_ID}/
 ```json
 # request body
 {}
