@@ -119,7 +119,7 @@ REST_FRAMEWORK = {
 # django-cors-headers settings
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'https://dev.codeleap.co.uk/',
+    'https://dev.codeleap.co.uk',
 )
 CORS_ALLOW_METHODS = [
     'DELETE',
