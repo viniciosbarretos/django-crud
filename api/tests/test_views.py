@@ -206,7 +206,7 @@ class PutMethodPostApiTest(TestCase):
 				content_type='application/json'
 			)
 			# sanity check
-			print('\n', response.data, '\n')
+			# print('\n', response.data, '\n')
 			self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 	# HTTP PUT request to / path
@@ -220,3 +220,25 @@ class PutMethodPostApiTest(TestCase):
 		# sanity check
 		# print('\n', response.data, '\n')
 		self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+# test case for HTTP DELETE Method
+class DeleteMethodPostApiTest(TestCase):
+	def setUp(self):
+		# create demo data
+		self.post1 = create_post_1()
+		self.post2 = create_post_2()
+
+	def test_delete_valid_post(self):
+		# get API response
+		response = client.delete(reverse('post-detail', kwargs={'pk': self.post1.pk}))
+		# sanity check
+		# print('\n', response.data, '\n')
+		self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+	def test_delete_invalid_post(self):
+		# get API response
+		response = client.delete(reverse('post-detail', kwargs={'pk': 7}))
+		# sanity check
+		# print('\n', response.data, '\n')
+		self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
