@@ -10,10 +10,24 @@
 
 #### 🏠 [Live API](https://google.com)
 
+## Requirements
+
+[Docker Compose](https://docs.docker.com/compose/install/)
+
+
 ## Install
 
+Codeleap is deployed using Docker Compose. Edit the script to configure the environment variables to fit your requirements.
+
 ```sh
-git clone
+# clone repository
+git clone git@github.com:viniciosbarretos/codeleap.git
+
+# change directory to repo
+cd codeleap
+
+# start the container using the docker-compose command
+docker-compose up
 ```
 
 ## Usage
