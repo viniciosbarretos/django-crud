@@ -22,7 +22,7 @@ pip install -r requirements.txt
 
 ### Running the Application
 
-Before running the application we need to create DB tables. Note that if you run the app without Docker, the database used will be sqlite. You can change database settings at env.py file.
+Before running the application we need to create DB tables. Note that if you are running the application without Docker, the database used will be sqlite. You can change the database settings in the env.py file.
 ```
 python manage.py makemigrations
 python manage.py migrate
