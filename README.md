@@ -1,16 +1,14 @@
 <h1 align="center">Welcome to codeleap 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="#" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/viniciosbarretos/codeleap" />
+  <a href="https://github.com/viniciosbarretos/codeleap/blob/master/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
   </a>
 </p>
 
-> This is a small Django project to demonstrate Django CRUD functionality.
+> This is a small Django project to demonstrate Django CRUD functionality. The main app is an API created using Django Rest Framework.
 
-### 🏠 [Homepage](https://google.com)
-
-### ✨ [Demo](https://google.com)
+#### 🏠 [Live API](https://google.com)
 
 ## Install
 
