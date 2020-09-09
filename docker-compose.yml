@@ -13,8 +13,11 @@ services:
         depends_on:
             - postgres
         environment:
-            # this should be True to work properly
+            # this should be True to work properly with docker
             - USE_DOCKER=True
+
+            # don't run with debug turned on in production
+            - DEBUG=False
 
             # database setup
             - DB_USER=admin

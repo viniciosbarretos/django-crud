@@ -34,7 +34,7 @@ else:
 	SECRET_KEY = '&-aivg+u*-$w6vl@^i=1okl%jbh$wyj98n8jrndqve-gwm)6hm'
 
 	# SECURITY WARNING: don't run with debug turned on in production!
-	DEBUG = True
+	DEBUG = os.getenv('DEBUG')
 	ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 	TIME_ZONE = 'America/Sao_Paulo'
 	LANGUAGE_CODE = 'en-us'
