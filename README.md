@@ -37,7 +37,7 @@ To access the application go to the URL defined at docker-compose.yml. The defau
 ### Create Post
 ##### POST http://{{ domain }} /
 ```json
-# request body
+// request body
 {
     "username": "@Sample User",
     "title": "Lorem Ipsum",
@@ -54,7 +54,7 @@ To access the application go to the URL defined at docker-compose.yml. The defau
 ### Update a Post
 ##### PATCH http://{{ domain }} /{OBJECT_ID}/
 ```json
-# request body
+// request body
 {
     "title": "Lorem Ipsum",
     "content": "Dolor Sit Amet"
@@ -64,7 +64,7 @@ To access the application go to the URL defined at docker-compose.yml. The defau
 ### Delete a Post
 ##### DELETE http://{{ domain }} /{OBJECT_ID}/
 ```json
-# request body
+// request body
 {}
 ```
 
