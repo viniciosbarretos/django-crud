@@ -34,6 +34,40 @@ sudo docker-compose up
 
 To access the application go to the URL defined at docker-compose.yml. The default URL is http://localhost:80/
 
+### Create Post
+##### POST http://{{ domain }} /
+```json
+# request body
+{
+    "username": "@Sample User",
+    "title": "Lorem Ipsum",
+    "content": "Dolor Sit Amet"
+}
+```
+
+### Get a list of Posts
+##### GET http://{{ domain }} /
+
+### Get individual Post
+##### GET http://{{ domain }} /{OBJECT_ID}
+
+### Update a Post
+##### PATCH http://{{ domain }} /{OBJECT_ID}
+```json
+# request body
+{
+    "title": "Lorem Ipsum",
+    "content": "Dolor Sit Amet"
+}
+```
+
+### Delete a Post
+##### PATCH http://{{ domain }} /{OBJECT_ID}
+```json
+# request body
+{}
+```
+
 
 
 ## API Validators
