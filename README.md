@@ -35,10 +35,22 @@ docker-compose up
 To access the application go to the URL defined at docker-compose.yml. The default URL is http://localhost:80/
 
 
+
+## API Validations
+
+* All usernames should start with @
+* Once set, you can't change username
+* You can't set object ID and creation datetime
+
+## CORS Policy
+
+By default, all cors requests are blocked, except from `https://dev.codeleap.co.uk/`.
+
+
 ## Run tests
 
 ```sh
-test
+docker-compose run app-django python manage.py test
 ```
 
 ## Author

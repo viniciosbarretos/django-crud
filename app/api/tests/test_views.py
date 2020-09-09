@@ -64,7 +64,7 @@ class GetMethodPostApiTest(TestCase):
 	# get specific invalid post
 	def test_get_invalid_single_post(self):
 		# get API response
-		response = client.get(reverse('post-detail', kwargs={'pk': 7}))
+		response = client.get(reverse('post-detail', kwargs={'pk': 790}))
 
 		# sanity check
 		# print('\n', response.data, '\n')
