@@ -7,8 +7,8 @@ upstream app_django {
 # now we declare our main server
 server {
 
-    listen 80;
-    server_name 127.0.0.1;
+    listen ${SERVER_PORT};
+    server_name ${SERVER_NAME};
 
     location / {
         # everything is passed to Gunicorn

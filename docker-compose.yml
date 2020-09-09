@@ -25,6 +25,9 @@ services:
             - DB_NAME=crud_app
             - DB_HOST=postgres
 
+            # host allowed to access django (should be equal to nginx conf)
+            - ALLOWED_HOST=localhost
+
     postgres:
         image: postgres:latest
         restart: unless-stopped
@@ -38,13 +41,15 @@ services:
             - POSTGRES_DB=crud_app
 
     nginx:
-        image: nginx:latest
+        build: ./nginx/
         restart: unless-stopped
         ports:
             - 80:80
-            - 443:443
+        environment:
+            # host allowed to access django (should be equal to nginx conf)
+            - SERVER_NAME=127.0.0.1
+            - SERVER_PORT=80
         volumes:
-            - ./config/nginx/conf.d:/etc/nginx/conf.d
             - static_volume:/opt/codeleap/static/
 #            - ./certbot/conf:/etc/letsencrypt
 #            - ./certbot/www:/var/www/certbot
@@ -52,7 +57,6 @@ services:
             - app-django
         networks:
             - nginx_network
-        command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
 #    certbot:
 #        image: certbot/certbot
