@@ -143,3 +143,80 @@ class PostMethodPostApiTest(TestCase):
 		# sanity check
 		# print('\n', response.data, '\n')
 		self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+
+# test case for HTTP PUT Method
+class PutMethodPostApiTest(TestCase):
+	def setUp(self):
+		# create demo data
+		self.post1 = create_post_1()
+		self.post2 = create_post_2()
+
+		self.valid_post = {
+			'username': create_post_1().username,
+			'title': 'Another title test',
+			'content': 'Another content test',
+		}
+
+		self.invalid_post_list = [
+			{# change username
+				'username': '@Another User',
+				'title': 'Title test',
+				'content': 'Content test',
+			},
+			{# username empty
+				'username': '',
+				'title': 'Title test',
+				'content': 'Content test',
+			},
+			{# title empty
+				'username': create_post_1().username,
+				'title': '',
+				'content': 'Content test',
+			},
+			{# content empty
+				'username': create_post_1().username,
+				'title': 'Title test',
+				'content': '',
+			},
+			{  # empty dict
+			}
+		]
+
+	# valid update object
+	def test_update_valid_post(self):
+		# get API response
+		response = client.put(
+			reverse('post-detail', kwargs={'pk': self.post1.pk}),
+			data=json.dumps(self.valid_post),
+			content_type='application/json'
+		)
+		# sanity check
+		# print('\n', response.data, '\n')
+		self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+	# create invalid post object
+	def test_update_invalid_post(self):
+		for post in self.invalid_post_list:
+			# get API response
+			response = client.put(
+				reverse('post-detail', kwargs={'pk': self.post1.pk}),
+				data=json.dumps(post),
+				content_type='application/json'
+			)
+			# sanity check
+			print('\n', response.data, '\n')
+			self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+	# HTTP PUT request to / path
+	def test_put_request_wrong_path(self):
+		# get API response
+		response = client.put(
+			reverse('post-list'),
+			data=json.dumps(self.valid_post),
+			content_type='application/json'
+		)
+		# sanity check
+		# print('\n', response.data, '\n')
+		self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
