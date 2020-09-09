@@ -27,6 +27,10 @@ Before running the application we need to create DB tables. Note that if you are
 python manage.py makemigrations
 python manage.py migrate
 ```
+Since Django Rest Framework has a front-end interface, we need to collectstatic:
+```
+python manage.py collectstatic --noinput
+```
 
 Now you can run the web server:
 ```
