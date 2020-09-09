@@ -1,0 +1,62 @@
+version: "3.8"
+
+services:
+    app-django:
+        build: ./app/
+        restart: unless-stopped
+        volumes:
+            - static_volume:/opt/codeleap/static/
+        networks:
+            - nginx_network
+            - postgres_network
+        depends_on:
+            - postgres
+
+    postgres:
+        image: postgres:latest
+        restart: unless-stopped
+        environment:
+            - POSTGRES_USER=admin
+            - POSTGRES_PASSWORD=admin
+            - POSTGRES_DATABSE=crud_app
+        networks:
+            - postgres_network
+        volumes:
+            - postgres_volume:/var/lib/postgresql/data
+
+    nginx:
+        image: nginx:latest
+        restart: unless-stopped
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - ./config/nginx/conf.d:/etc/nginx/conf.d
+            - static_volume:/opt/codeleap/static/
+#            - ./certbot/conf:/etc/letsencrypt
+#            - ./certbot/www:/var/www/certbot
+        depends_on:
+            - app-django
+        networks:
+            - nginx_network
+        command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+
+#    certbot:
+#        image: certbot/certbot
+#        restart: unless-stopped
+#        volumes:
+#            - ./certbot/conf:/etc/letsencrypt
+#            - ./certbot/www:/var/www/certbot
+#            - ./certbot/log:/var/log/letsencrypt
+#        entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+networks:
+    nginx_network:
+        driver: bridge
+
+    postgres_network:
+        driver: bridge
+
+volumes:
+    postgres_volume:
+    static_volume:
