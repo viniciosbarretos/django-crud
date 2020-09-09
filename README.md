@@ -53,6 +53,15 @@ By default, all cors requests are blocked, except from `https://dev.codeleap.co.
 docker-compose run app-django python manage.py test
 ```
 
+## To do
+* SSL / certbot (domain name needed)
+* API results pagination
+    * If this were implemented, the front end would not work correctly. I followed [documentation](https://www.figma.com/file/0OQWLQmU14SF2cDhHPJ2sx/CodeLeap-Engineering-Test?node-id=0%3A1) guidelines.
+
+```sh
+docker-compose run app-django python manage.py test
+```
+
 ## Author
 
 👤 **Vinicios Barretos**
