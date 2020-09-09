@@ -20,6 +20,22 @@ source env-codeleap/bin/activate
 pip install -r requirements.txt
 ```
 
+### Running the Application
+
+Before running the application we need to create DB tables:
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Now you can run the web server:
+```
+python manage.py runserver
+```
+
+To access the application go to the URL <http://localhost:8000/>
+
+
 ### Unit Tests
 ```
 # enable virtualenv (if it is disabled)
