@@ -8,7 +8,7 @@
 
 > This is a small Django project to demonstrate Django CRUD functionality. The main app is an API created using Django Rest Framework.
 
-#### 🏠 [Live API](https://google.com)
+#### 🏠 [Live API](https://codeleap.mastercoder.com.br)
 
 ## Requirements
 
