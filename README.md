@@ -21,13 +21,13 @@ Codeleap is deployed using Docker Compose. Edit the script to configure the envi
 
 ```sh
 # clone repository
-git clone git@github.com:viniciosbarretos/codeleap.git
+git clone https://github.com/viniciosbarretos/codeleap.git
 
 # change directory to repo
 cd codeleap
 
 # start the container using the docker-compose command
-docker-compose up
+sudo docker-compose up
 ```
 
 ## Usage
